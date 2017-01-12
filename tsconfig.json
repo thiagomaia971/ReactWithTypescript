@@ -1,13 +1,15 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
-        "outDir": "./dist/test.js",
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
         "jsx": "react"
     },
+    "exclude": [
+        "node_modules"
+    ],
     "include": [
         "./src/**/*"
     ]

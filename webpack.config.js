@@ -1,20 +1,16 @@
-var loader = require('awesome-typescript-loader')
+var loader = require('awesome-typescript-loader');
 var webpack = require('webpack');
 
 module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: "./dist/"
     },
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
-    devServer: {
-        inline: true,
-        port: 8080
-    },
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -28,6 +24,10 @@ module.exports = {
                 test: /\.tsx?$/,
                 loader: "awesome-typescript-loader"
             }
+        ],
+         preLoaders: [
+            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+            { test: /\.js$/, loader: "source-map-loader" }
         ]
     },
 
