@@ -7,14 +7,14 @@ module.exports = {
     entry: [
         // Add the react hot loader entry point - in reality, you only want this in your dev Webpack config
         'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
         'index.tsx'
     ],
     output: {
-        filename: 'app.js',
+        filename: 'bundle.js',
         publicPath: '/dist',
-        path: path.resolve('dist')
+        path: __dirname + 'dist'
     },
     resolve: {
         extensions: ['', '.ts', '.tsx', '.js', '.jsx'],

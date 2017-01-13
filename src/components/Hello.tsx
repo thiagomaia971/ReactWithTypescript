@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 //import { ADD_TODO, addTodo } from "../../actions/todos";
-import { addTodo, ADD_TODO, removeTodo, REMOVE_TODO } from "../../actions/todos";
-import * as TodoActionCreators from "../../actions/todos";
-import { IAction } from "../../actions/Action";
+import { addTodo, ADD_TODO, removeTodo, REMOVE_TODO } from "../actions/todos";
+import * as TodoActionCreators from "../actions/todos";
+import { IAction } from "../actions/Action";
 import { Reducer } from "redux-actions";
 
 interface HelloProps {
@@ -35,7 +35,6 @@ class Hello extends React.Component<HelloProps, HelloState> {
 
     constructor(props: any) {
         super(props);
-
     }
 
     public componentWillMount() {
@@ -54,13 +53,13 @@ class Hello extends React.Component<HelloProps, HelloState> {
 
         return (
             <div>
-                <div>foo: {this.props.foo} message: {this.props.message}</div>
-                <button onClick={addTodo.bind(this, "teste")} />
+                <div>foo: {foo} message: {message}</div>
+                <button onClick={addTodo.bind(this, "teste")} > Dispatch</button>
                 
                 {
-                    (this.props.todoList != undefined && this.props.todoList.length > 0)
+                    (todoList && todoList.length > 0)
                     ?
-                    this.props.todoList.map((value, key) => {
+                    todoList.map((value, key) => {
                         return <span key={key}>{value}</span>
                     })
                     :
